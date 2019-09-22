@@ -1,4 +1,4 @@
-import dataclass from dataclasses
+from dataclasses import dataclass
 
 @dataclass
 class Document:
@@ -9,10 +9,10 @@ class Document:
 
 @dataclass
 class User:
-    user_id: str
     username: str
     password_hash: str
     first: str
     last: str
     email: str
-    documents: list = []
+    user_id: str = ''
+    documents: list = None
