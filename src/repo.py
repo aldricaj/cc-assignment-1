@@ -1,5 +1,6 @@
 import pymongo.errors
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 import model
 import errors.database as db_err
@@ -51,7 +52,7 @@ def get_user_by_id(user_id:str, database=None) -> model.User:
         raise db_err.ItemDoesNotExistError(location=f'mongodb: Person at {DATABASE_NAME}@{HOST}:{PORT}', name=user_id)
 
     person_collection = database['person']
-    person_as_dict = person_collection.find({'_id':user_id})[0]
+    person_as_dict = person_collection.find({'_id': ObjectId(user_id)})[0]
     
     return _user_from_mongo(person_as_dict)
 

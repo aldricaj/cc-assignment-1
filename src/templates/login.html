@@ -1,4 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Login Here</h1>
+    <div id="login-container" class="container">
+        <h2>Login to an Existing Account</h2>
+        <form id="log-in" action="./" method="POST">
+            <div class="row">
+                <label class="col-sm-1" for="username">Username:</label> <input class="col-sm-2" name="username" type="text">
+            </div>
+            <div class="row">
+                <label class="col-sm-1" for="password">Password:</label> <input class="col-sm-2" name="password" type="password">
+            </div>
+            <div style="padding-left:12%; text-align: center" class="col-sm-2">
+                <input type="submit" value="Login">
+            </div>
+            <input type="text" name="action_type" hidden value="login">
+        </form>
+    </div>
+
+    <div id="new-account-container" class="container">
+        <h2>Make an Account</h2>
+        <p>Make a new account below</p>
+        <form id="new-account" action="./" method="POST">
+            <div class="row">
+                <label class="col-sm-2" for="username">Username:</label> <input class="col-sm-2" name="username" type="text">
+            </div>
+            <div class="row">
+                <label class="col-sm-1" for="password">Password:</label> <input class="col-sm-2" name="password" type="password">
+            </div>
+            <div class="row">
+                <label class="col-sm-2" for="first">First Name:</label> <input class="col-sm-2" name="first" type="text">
+            </div>
+            <div class="row">
+                <label class="col-sm-2" for="last">Last Name:</label> <input class="col-sm-2" name="last" type="text">
+            </div>
+            <div class="row">
+                <label class="col-sm-2" for="email">Email:</label> <input class="col-sm-2" name="email" type="text">
+            </div>
+
+            <div style="padding-left:12%; text-align: center" class="col-sm-3">
+                <input type="submit" value="Login">
+            </div>
+            <input type="text" name="action_type" hidden value="create">
+        </form>
+    </div>
+
 {% endblock %}
